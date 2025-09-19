@@ -18,6 +18,7 @@ export default function App() {
   const [images, setImages] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState('');
+  const [hasSearched, setHasSearched] = React.useState(false);
 
   async function fetchUnsplash(q) {
     const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
@@ -30,6 +31,7 @@ export default function App() {
       return;
     }
     setLoading(true);
+    setHasSearched(true);
     setError('');
     try {
       const res = await fetch(
@@ -62,68 +64,102 @@ export default function App() {
   }
 
   return (
-    <div className="app-root">
+    <div className="app-root soft-bg">
       <a className="skip-link" href="#main">Skip to content</a>
-      <header className="navbar" role="navigation" aria-label="Main navigation">
+
+      <header className="navbar frosted" role="navigation" aria-label="Main navigation">
         <div className="brand" aria-label="Home">📸 Travel Photo Search</div>
+        <a
+          className="icon-btn"
+          href="https://unsplash.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Unsplash"
+          title="Unsplash"
+        >
+          Unsplash
+        </a>
       </header>
 
-      <main id="main" className="container" tabIndex="-1">
-        <div className="card" role="region" aria-label="Location search">
-          <div className="card-header">
-            <h1 style={{ margin: 0 }}>Find photos by location</h1>
-          </div>
-          <div className="card-body">
-            <form onSubmit={onSubmit} aria-label="Search form" style={{ display: 'flex', gap: '.5rem' }}>
-              <label htmlFor="q" className="sr-only">Location</label>
-              <input
-                id="q"
-                className="input"
-                type="text"
-                placeholder="Type a location (e.g., Paris, Tokyo, Yosemite)"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                aria-label="Search location"
-              />
-              <button className="btn" type="submit" aria-label="Search photos">Search</button>
-            </form>
-            {loading && <div role="status" aria-live="polite" style={{ marginTop: '.75rem' }}>Loading…</div>}
-            {error && !loading && (
-              <div role="alert" style={{ marginTop: '.75rem', color: 'var(--danger)' }}>
-                {error}
-              </div>
-            )}
-          </div>
-        </div>
+      <section className="hero">
+        <div className="hero-inner">
+          <h1 className="hero-title">Find your next photo adventure</h1>
+          <p className="hero-subtitle">
+            Type a place and discover stunning photography from around the world.
+          </p>
 
+          <form onSubmit={onSubmit} aria-label="Search form" className="searchbar">
+            <label htmlFor="q" className="sr-only">Location</label>
+            <input
+              id="q"
+              className="input input-lg"
+              type="text"
+              placeholder="Try “Paris”, “Tokyo”, or “Yosemite”"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              aria-label="Search location"
+            />
+            <button className="btn btn-lg" type="submit" aria-label="Search photos">
+              Search
+            </button>
+          </form>
+
+          {loading && (
+            <div role="status" aria-live="polite" className="fade-in" style={{ marginTop: '.75rem' }}>
+              Loading…
+            </div>
+          )}
+          {error && !loading && (
+            <div role="alert" className="error-chip fade-in">
+              {error}
+            </div>
+          )}
+        </div>
+        <div className="hero-accent" aria-hidden="true" />
+      </section>
+
+      <main id="main" className="container" tabIndex="-1">
         <section aria-labelledby="results-title" style={{ marginTop: '1rem' }}>
           <h2 id="results-title" className="sr-only">Results</h2>
-          {(!loading && images.length === 0 && !error) ? (
-            <p style={{ color: 'var(--text-muted)' }}>No results yet. Try searching for a location.</p>
+          {!loading && images.length === 0 && !error && !hasSearched ? (
+            <p className="muted center">
+              Start with a location above to see beautiful photos.
+            </p>
           ) : null}
-          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+          {!loading && images.length === 0 && !error && hasSearched ? (
+            <p className="muted">No results found. Try a different place.</p>
+          ) : null}
+
+          <div className="masonry-grid">
             {images.map((img) => {
               const src = img.urls?.small || img.urls?.thumb || img.urls?.regular;
               const alt = img.alt_description || `Photo of ${query}`;
               const link = img.links?.html || img.urls?.regular;
               const user = img.user;
               return (
-                <article key={img.id} className="card">
-                  <a href={link} target="_blank" rel="noreferrer" aria-label="Open on Unsplash">
+                <article key={img.id} className="photo-card fade-in">
+                  <a href={link} target="_blank" rel="noreferrer" aria-label="Open on Unsplash" className="image-wrap">
                     <img
                       src={src}
                       alt={alt}
-                      style={{ width: '100%', height: 200, objectFit: 'cover', display: 'block' }}
                       loading="lazy"
+                      className="photo-img"
                     />
+                    <span className="image-overlay">View on Unsplash</span>
                   </a>
-                  <div className="card-body" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div style={{ fontSize: '.9rem' }}>
-                      <div style={{ fontWeight: 600 }}>{user?.name || 'Unknown'}</div>
-                      <div style={{ color: 'var(--text-muted)' }}>@{user?.username}</div>
+                  <div className="photo-meta">
+                    <div className="author">
+                      <div className="author-name">{user?.name || 'Unknown'}</div>
+                      <div className="author-username">@{user?.username}</div>
                     </div>
                     {user?.links?.html ? (
-                      <a className="btn-secondary" href={user.links.html} target="_blank" rel="noreferrer" aria-label="Photographer on Unsplash">
+                      <a
+                        className="btn-secondary mini"
+                        href={user.links.html}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Photographer on Unsplash"
+                      >
                         Profile
                       </a>
                     ) : null}
@@ -135,8 +171,15 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer">
-        <p>Images powered by Unsplash</p>
+      <footer className="footer soft-footer">
+        <p className="muted">
+          Photos powered by <a className="link" href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>. 
+          <span> Built for travel lovers.</span>
+        </p>
+        <div className="footer-links">
+          <a className="link" href="https://unsplash.com/license" target="_blank" rel="noreferrer">License</a>
+          <a className="link" href="https://unsplash.com/terms" target="_blank" rel="noreferrer">Terms</a>
+        </div>
       </footer>
     </div>
   );
