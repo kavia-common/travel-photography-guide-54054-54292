@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import './styles.css';
 
-// Curated Unsplash sample showcase (static)
-// Note: These are static links for demo purposes with visible attribution.
+ // Curated Unsplash sample showcase (static)
+ // Note: These are static links for demo purposes with visible attribution.
+ // Kept only the 3 valid Unsplash photos (Paris, Iceland, New York).
 const curatedSamples = [
   {
     id: 'sample-paris',
@@ -16,26 +17,6 @@ const curatedSamples = [
     location: 'Paris, France',
   },
   {
-    id: 'sample-yosemite',
-    // Annie Spratt — Yosemite Valley
-    src: 'https://images.unsplash.com/photo-1508261303786-e21733d43d0d?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Yosemite Valley with Half Dome and mist',
-    author: 'Annie Spratt',
-    authorUrl: 'https://unsplash.com/@anniespratt',
-    photoUrl: 'https://unsplash.com/photos/e21733d43d0d',
-    location: 'Yosemite, USA',
-  },
-  {
-    id: 'sample-tokyo',
-    // Andre Benz — Tokyo at night
-    src: 'https://images.unsplash.com/photo-1505150892987-424388e076fe?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Tokyo streets at night with neon lights',
-    author: 'Andre Benz',
-    authorUrl: 'https://unsplash.com/@trapnation',
-    photoUrl: 'https://unsplash.com/photos/424388e076fe',
-    location: 'Tokyo, Japan',
-  },
-  {
     id: 'sample-iceland',
     // Jonatan Pie — Iceland waterfall
     src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
@@ -44,16 +25,6 @@ const curatedSamples = [
     authorUrl: 'https://unsplash.com/@r3dmax',
     photoUrl: 'https://unsplash.com/photos/b586d89ba3ee',
     location: 'Iceland',
-  },
-  {
-    id: 'sample-rome',
-    // Christopher Czermak — Colosseum, Rome
-    src: 'https://images.unsplash.com/photo-1526483360412-f4dbaf036963?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Colosseum in Rome under a dramatic sky',
-    author: 'Christopher Czermak',
-    authorUrl: 'https://unsplash.com/@czermak_photography',
-    photoUrl: 'https://unsplash.com/photos/f4dbaf036963',
-    location: 'Rome, Italy',
   },
   {
     id: 'sample-newyork',
@@ -187,7 +158,7 @@ export default function App() {
                 Start with a location above to see beautiful photos.
               </p>
               <div className="sample-grid" role="list" aria-label="Curated sample photos">
-                {curatedSamples.slice(0, 6).map((s) => (
+                {curatedSamples.map((s) => (
                   <figure key={s.id} role="listitem" className="sample-card">
                     <a href={s.photoUrl} target="_blank" rel="noreferrer" className="image-wrap" aria-label={`View on Unsplash: ${s.alt}`}>
                       <img src={s.src} alt={s.alt} loading="lazy" className="photo-img" />
