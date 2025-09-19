@@ -55,3 +55,7 @@
   color: var(--text-primary);
   transition: background-color .2s ease, color .2s ease;
 }
+/* Ensure the root can contain space for fixed footer when class is added */
+.app-with-sticky-footer {
+  min-height: 100vh;
+}

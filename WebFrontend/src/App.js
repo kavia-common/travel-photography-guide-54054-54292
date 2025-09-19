@@ -101,7 +101,7 @@ export default function App() {
   }
 
   return (
-    <div className="app-root soft-bg">
+    <div className="app-root soft-bg app-with-sticky-footer">
       <a className="skip-link" href="#main">Skip to content</a>
 
       <header className="navbar frosted" role="navigation" aria-label="Main navigation">
@@ -211,15 +211,10 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer soft-footer">
-        <p className="muted">
-          Photos powered by <a className="link" href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>.
-          <span> Built for travel lovers.</span>
+      <footer className="footer footer-sticky soft-footer" role="contentinfo" aria-label="Site footer">
+        <p className="muted footer-text">
+          Photos powered by <a className="link" href="https://unsplash.com" target="_blank" rel="noreferrer">Unsplash</a>. Built for travel lovers. <a className="link" href="https://unsplash.com/license" target="_blank" rel="noreferrer">License</a><a className="link spacer" href="https://unsplash.com/terms" target="_blank" rel="noreferrer">Terms</a>
         </p>
-        <div className="footer-links">
-          <a className="link" href="https://unsplash.com/license" target="_blank" rel="noreferrer">License</a>
-          <a className="link" href="https://unsplash.com/terms" target="_blank" rel="noreferrer">Terms</a>
-        </div>
       </footer>
     </div>
   );
