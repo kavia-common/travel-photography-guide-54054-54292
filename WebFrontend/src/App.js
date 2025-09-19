@@ -106,16 +106,6 @@ export default function App() {
 
       <header className="navbar frosted" role="navigation" aria-label="Main navigation">
         <div className="brand" aria-label="Home">📸 Travel Photo Search</div>
-        <a
-          className="icon-btn"
-          href="https://unsplash.com"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Unsplash"
-          title="Unsplash"
-        >
-          Unsplash
-        </a>
       </header>
 
       <section className="hero">
@@ -164,12 +154,6 @@ export default function App() {
                       <img src={s.src} alt={s.alt} loading="lazy" className="photo-img" />
                       <span className="image-overlay">View on Unsplash</span>
                     </a>
-                    <figcaption className="sample-meta" title={`${s.author} • ${s.location}`}>
-                      <span className="sample-location">{s.location}</span>
-                      <span className="sample-credit">
-                        by <a href={s.authorUrl} className="link" target="_blank" rel="noreferrer">{s.author}</a>
-                      </span>
-                    </figcaption>
                   </figure>
                 ))}
               </div>
