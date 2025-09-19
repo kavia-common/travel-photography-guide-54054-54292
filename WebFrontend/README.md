@@ -1,82 +1,30 @@
-# Lightweight React Template for KAVIA
+# Travel Photo Search (Unsplash) - WebFrontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A minimal single-page React app where users type a location and see images fetched from the Unsplash API.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Single page with a location search input
+- Fetches images from Unsplash Search API for the given location
+- Responsive image grid with photographer attribution
+- Basic loading and error states
+- Accessible controls (skip link, labels, roles)
 
-## Getting Started
+## Environment Variables
 
-In the project directory, you can run:
+Create or configure the following environment variable (the orchestrator will set it during deployment):
 
-### `npm start`
+- REACT_APP_UNSPLASH_ACCESS_KEY: Your Unsplash API Access Key.
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Do not hardcode secrets in code.
 
-### `npm test`
+## Scripts
 
-Launches the test runner in interactive watch mode.
+- `npm start` - Start development server
+- `npm test` - Run tests in CI mode
+- `npm run build` - Create production build
 
-### `npm run build`
+## Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- All previous advanced features (maps, uploads, gallery, auth, etc.) have been removed in this refactor to focus solely on location-based image search via Unsplash.
+- If you see an error about missing API key, ensure REACT_APP_UNSPLASH_ACCESS_KEY is set.

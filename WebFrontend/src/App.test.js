@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders brand title', () => {
   render(<App />);
-  const el = screen.getByText(/Travel Photo Guide/i);
+  const el = screen.getByText(/Travel Photo Search/i);
   expect(el).toBeInTheDocument();
 });
