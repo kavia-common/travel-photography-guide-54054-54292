@@ -7,56 +7,62 @@ import './styles.css';
 const curatedSamples = [
   {
     id: 'sample-paris',
-    src: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop',
+    // Alexander Kagan — Eiffel Tower, Paris
+    src: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80',
     alt: 'Paris skyline with Eiffel Tower at dusk',
     author: 'Alexander Kagan',
     authorUrl: 'https://unsplash.com/@kagan',
-    photoUrl: 'https://unsplash.com/photos/photo-1502602898657-3e91760cbb34',
+    photoUrl: 'https://unsplash.com/photos/3e91760cbb34',
     location: 'Paris, France',
   },
   {
     id: 'sample-yosemite',
-    src: 'https://images.unsplash.com/photo-1508261303786-e21733d43d0d?q=80&w=1200&auto=format&fit=crop',
+    // Annie Spratt — Yosemite Valley
+    src: 'https://images.unsplash.com/photo-1508261303786-e21733d43d0d?auto=format&fit=crop&w=1200&q=80',
     alt: 'Yosemite Valley with Half Dome and mist',
     author: 'Annie Spratt',
     authorUrl: 'https://unsplash.com/@anniespratt',
-    photoUrl: 'https://unsplash.com/photos/photo-1508261303786-e21733d43d0d',
+    photoUrl: 'https://unsplash.com/photos/e21733d43d0d',
     location: 'Yosemite, USA',
   },
   {
     id: 'sample-tokyo',
-    src: 'https://images.unsplash.com/photo-1505150892987-424388e076fe?q=80&w=1200&auto=format&fit=crop',
+    // Andre Benz — Tokyo at night
+    src: 'https://images.unsplash.com/photo-1505150892987-424388e076fe?auto=format&fit=crop&w=1200&q=80',
     alt: 'Tokyo streets at night with neon lights',
     author: 'Andre Benz',
     authorUrl: 'https://unsplash.com/@trapnation',
-    photoUrl: 'https://unsplash.com/photos/photo-1505150892987-424388e076fe',
+    photoUrl: 'https://unsplash.com/photos/424388e076fe',
     location: 'Tokyo, Japan',
   },
   {
     id: 'sample-iceland',
-    src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop',
+    // Jonatan Pie — Iceland waterfall
+    src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
     alt: 'Icelandic waterfall and green cliffs',
     author: 'Jonatan Pie',
     authorUrl: 'https://unsplash.com/@r3dmax',
-    photoUrl: 'https://unsplash.com/photos/photo-1500530855697-b586d89ba3ee',
+    photoUrl: 'https://unsplash.com/photos/b586d89ba3ee',
     location: 'Iceland',
   },
   {
     id: 'sample-rome',
-    src: 'https://images.unsplash.com/photo-1526483360412-f4dbaf036963?q=80&w=1200&auto=format&fit=crop',
+    // Christopher Czermak — Colosseum, Rome
+    src: 'https://images.unsplash.com/photo-1526483360412-f4dbaf036963?auto=format&fit=crop&w=1200&q=80',
     alt: 'Colosseum in Rome under a dramatic sky',
     author: 'Christopher Czermak',
     authorUrl: 'https://unsplash.com/@czermak_photography',
-    photoUrl: 'https://unsplash.com/photos/photo-1526483360412-f4dbaf036963',
+    photoUrl: 'https://unsplash.com/photos/f4dbaf036963',
     location: 'Rome, Italy',
   },
   {
     id: 'sample-newyork',
-    src: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop',
+    // Stephen Leonardi — NYC Skyline
+    src: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80',
     alt: 'New York City skyline with Empire State Building',
     author: 'Stephen Leonardi',
     authorUrl: 'https://unsplash.com/@stephenleo1982',
-    photoUrl: 'https://unsplash.com/photos/photo-1494976388531-d1058494cdd8',
+    photoUrl: 'https://unsplash.com/photos/d1058494cdd8',
     location: 'New York, USA',
   },
 ];
