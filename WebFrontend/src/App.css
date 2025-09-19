@@ -1,21 +1,57 @@
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f7f7f9;
-  --text-primary: #101828;
-  --text-secondary: #0ea5e9;
-  --border: #e5e7eb;
-  --button-bg: #0ea5e9;
-  --button-text: #ffffff;
+  /* Vibrant playful theme */
+  --bg-primary: #0b1020;             /* deep night blue for contrast */
+  --bg-secondary: #101631;           /* secondary surface */
+  --text-primary: #f5f7fb;           /* high-contrast text */
+  --text-secondary: #ffd6f6;         /* soft pink accent text */
+  --border: rgba(255,255,255,0.14);
+
+  /* Brand gradient: pink ➜ purple ➜ electric blue */
+  --brand: #ff66c4;
+  --brand-2: #8b5cf6;
+  --brand-3: #22d3ee;
+  --brand-contrast: #0a0a0a;         /* black text on bright buttons for readability */
+  --brand-soft: rgba(255, 102, 196, 0.15);
+
+  --button-bg: linear-gradient(135deg, var(--brand), var(--brand-2) 55%, var(--brand-3));
+  --button-text: var(--brand-contrast);
+
+  --surface: #0f172a;                /* card surfaces */
+  --shadow: 0 10px 30px rgba(2, 11, 29, 0.35);
+
+  --danger: #fb7185;
+  --success: #34d399;
+  --link: #9ae6ff;
 }
 
 [data-theme="dark"] {
-  --bg-primary: #0b0f14;
-  --bg-secondary: #0b1220;
-  --text-primary: #e5e7eb;
-  --text-secondary: #38bdf8;
-  --border: #1f2937;
-  --button-bg: #38bdf8;
-  --button-text: #0b0f14;
+  /* Keep dark mode aligned with playful theme */
+  --bg-primary: #070a16;
+  --bg-secondary: #0b1020;
+  --text-primary: #f5f7fb;
+  --text-secondary: #ffd6f6;
+  --border: rgba(255,255,255,0.16);
+
+  --brand: #ff66c4;
+  --brand-2: #8b5cf6;
+  --brand-3: #22d3ee;
+  --brand-contrast: #0a0a0a;
+  --brand-soft: rgba(139, 92, 246, 0.18);
+
+  --button-bg: linear-gradient(135deg, var(--brand), var(--brand-2) 55%, var(--brand-3));
+  --button-text: var(--brand-contrast);
+
+  --surface: #0b1220;
+  --shadow: 0 14px 36px rgba(0,0,0,0.5);
+
+  --danger: #fca5a5;
+  --success: #6ee7b7;
+  --link: #a5f3fc;
 }
 
-.app-root { min-height: 100vh; background: var(--bg-primary); color: var(--text-primary); transition: background-color .2s ease, color .2s ease; }
+/* Let styles.css apply the rich gradient canvas; keep text color and min height here */
+.app-root {
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: background-color .2s ease, color .2s ease;
+}
